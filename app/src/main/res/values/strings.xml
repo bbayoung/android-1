@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PlantProject</string>
+    <string name="menu_add">Add Plant</string>
+    <string name="menu_settings">Settings</string>
 </resources>
