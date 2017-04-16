@@ -3,6 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include android:id="@+id/detail_bar" layout="@layout/detail_bar"/>
+    <include android:id="@+id/detail_bar" layout="@layout/app_bar_detail"/>
+
 
 </RelativeLayout>

@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     ListView list;
     String[] pots = {"율마1","율마2","수국1"};
 
-    //1. 위젯 변수 선언
-   // Button btnPlant1;
-
     //화면 생성
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +45,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
-
-
-        //2. 위젯 객체(인스턴스) 생성
-     //   btnPlant1 = (Button)findViewById(R.id.btnPlant);
-        //3. 버튼 클릭 이벤트(파라미터에 클래스넣음. 내부클래스)
-        //이벤트 소스, 이벤트 리스너(이벤트 일어나는지 감시), 이벤트 핸들러(이벤트 일어나면 무슨일 할지)
-      //  btnPlant1.setOnClickListener(new View.OnClickListener() {
-          //  @Override
-         //   public void onClick(View v) {
-         //       Intent detailIntent = new Intent(MainActivity.this, DetailActivity.class);
-        //        MainActivity.this.startActivity(detailIntent);
-       //     }
-     //   });
     }
 
     @Override
