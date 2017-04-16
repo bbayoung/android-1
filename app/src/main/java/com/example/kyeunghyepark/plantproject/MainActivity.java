@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setSupportActionBar(toolbar);
 
         list = (ListView) findViewById(R.id.potList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.single_row,R.id.textView,pots);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.single_row,R.id.textView,pots);
 
         list.setAdapter(adapter);
         list.setOnItemClickListener(this);
@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent detailIntent = new Intent(MainActivity.this, DetailActivity.class);
+
+        detailIntent.putExtra("plantName", pots[position]);
+        detailIntent.putExtra("plantId", position);
+
         MainActivity.this.startActivity(detailIntent);
     }
 }

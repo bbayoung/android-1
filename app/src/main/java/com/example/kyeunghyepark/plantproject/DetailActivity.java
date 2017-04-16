@@ -2,11 +2,11 @@ package com.example.kyeunghyepark.plantproject;
 
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.kyeunghyepark.plantproject.utils.TabPagerAdapter;
 
@@ -18,8 +18,10 @@ public class DetailActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private TextView tvName, tvType, tvLocation, tvState;
 
     private int plantId;
+    private String plantName;
     private String[] tabNames = {"요약", "수분", "온도", "습도", "빛"};
 
     //화면 생성
@@ -29,22 +31,29 @@ public class DetailActivity extends AppCompatActivity {
         //화면 레이아웃 파일 지정
         setContentView(R.layout.activity_detail);
 
-        // Plant Id 가져 옴
+        // intent 가져 옴
         plantId = getIntent().getIntExtra("plantId", 0);
+        plantName = getIntent().getStringExtra("plantName");
 
-        //툴바 리소스 가져옴
-        toolbar= (Toolbar) findViewById(R.id.detail_bar);
+        // XML 리소스 가져옴
+        toolbar = (Toolbar) findViewById(R.id.detail_bar);
+        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        tvName = (TextView) findViewById(R.id.tvName);
+        tvType = (TextView) findViewById(R.id.tvType);
+        tvLocation = (TextView) findViewById(R.id.tvLocation);
+        tvState = (TextView) findViewById(R.id.tvState);
+
+        // 툴바 셋팅
         setSupportActionBar(toolbar);
+        setTitle(plantName);
 
         // Initializing the TabLayout
-        tabLayout = (TabLayout) findViewById(R.id.tabLayout);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorBlack));
         for(String name: tabNames) {
             tabLayout.addTab(tabLayout.newTab().setText(name));
         }
-
-        // Initializing ViewPager
-        viewPager = (ViewPager) findViewById(R.id.pager);
 
         // Creating TabPagerAdapter adapter
         TabPagerAdapter pagerAdapter = new TabPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), plantId);
@@ -69,6 +78,9 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        // view settings
+        tvName.setText("이름 : " + plantName);
+
         //홈으로 돌아가기 버튼
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -79,13 +91,10 @@ public class DetailActivity extends AppCompatActivity {
 
         int id = item.getItemId();
 
-        //if(id == R.id.action_settings){
-           // return true;
-       // }
         if(id==android.R.id.home){
-            NavUtils.navigateUpFromSameTask(this);
+            finish();
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }

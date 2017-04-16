@@ -17,7 +17,42 @@
             android:layout_height="0dp"
             android:orientation="horizontal"
             android:layout_weight="2">
-
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wilma"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="이름 : "/>
+                <TextView
+                    android:id="@+id/tvType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="종류 : Wilma"/>
+                <TextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="위치 : 거실"/>
+                <TextView
+                    android:id="@+id/tvState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="상태 : 좋음"/>
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -30,7 +65,7 @@
                 android:id="@+id/tabLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="?attr/colorPrimary"
+                android:background="@color/colorPrimaryDark"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
@@ -44,8 +79,19 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:orientation="vertical"
-            android:layout_weight="1">
-
+            android:layout_weight="2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="상태 총평"
+                android:textColor="@color/colorWhite"
+                android:background="@color/colorPrimaryDark"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- 여기에 총평을 넣어주세요 -->
+            </RelativeLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
